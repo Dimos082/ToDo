@@ -5,7 +5,7 @@ let completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 // User clicked on the add button
 // if tere is any text in the item field field, add this text to the todo list.
 document.getElementById('add').addEventListener('click', function () {
-    var value = document.getElementById('item').value;
+    let value = document.getElementById('item').value;
     if (value) addItemTodo(value);
 });
 
