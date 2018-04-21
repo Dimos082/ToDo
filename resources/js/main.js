@@ -88,14 +88,6 @@ document.getElementById("item").addEventListener("keydown", function(enter) {
 } 
 });
 
-// document.onkeydown = function (e) {
-//   e = e || window.event;
-//   switch (e.which || e.keyCode) {
-//         case 13 : //Your Code Here (13 is ascii code for 'ENTER')
-//             break;
-//   }
-// }
-
 function addItem (value) {
  addItemTodo(value)
  document.getElementById('item').value = '';
