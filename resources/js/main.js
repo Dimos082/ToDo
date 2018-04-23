@@ -56,7 +56,7 @@ document.getElementById("add").addEventListener("click", function() {
   } if (value.match( /(Hello|hello)/ ) ) {
     alert("Hi there! :-)");
   } if (value.match( /(Car|car|Bike|bike|Moped|moped)/ ) ) {
-    alert("Drive safely! :-)");
+    alert("Drive safe! :-)");
   } if (value.match( /(Buy|buy|Shop|shop)/ ) ) {
     alert("Did you forget to buy anything else? Soft drinks, maybe some milk. :-)");
   } if (value.match( /(Milk|milk)/ ) ) {
@@ -87,6 +87,14 @@ document.getElementById("item").addEventListener("keydown", function(enter) {
     addItem(value);
 } 
 });
+
+// document.onkeydown = function (e) {
+//   e = e || window.event;
+//   switch (e.which || e.keyCode) {
+//         case 13 : //Your Code Here (13 is ascii code for 'ENTER')
+//             break;
+//   }
+// }
 
 function addItem (value) {
  addItemTodo(value)
@@ -159,7 +167,7 @@ function removeItem() {
   let parent = item.parentNode;
   let id = parent.id;
   let value = item.innerText;
-// Removes items from array as well
+  // Removes items from array as well
   if ( id === "todo") {
     data.todo.splice(data.todo.indexOf(value), 1);
   } else {
