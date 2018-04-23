@@ -34,72 +34,24 @@ restoreTodoList();
 // User clicked on the add (+) button
 // if tere is any text in the item field, add this text to the todo list
 document.getElementById("add").addEventListener("click", function() {
-  let value = document.getElementById("item").value;
-  
-  if (value) {
-    // Pushing data to array for local storage
-    data.todo.push(value);
-    dataObjectUpdated();
-   
-    addItemTodo(value);
-    // Removes text from item field right after adding it
-    document.getElementById("item").value = "";
-  // Reactions to different input, I used Regex to reduce complexity, can be replaced with indexOf like this: 
-  // if ((value.indexOf('first') >= 0) || (value.indexOf('second') >= 0)) {} indexOf process data faster and ignores string case
-  // I also didn't use "else if" to make each conditional equal to each other (has nothing to do with communism) 
-  } if (value == "") {
-    alert("Please write something.");
-  } if (value.match( /(Cat|cat)/ ) ) {
-    alert("Cats are awesome =(^_^)=");
-  } if (value.match( /(Dog|dog)/ ) ) {
-    alert("Dogs are cool! ₍ᐢ•ﻌ•ᐢ₎");
-  } if (value.match( /(Hello|hello)/ ) ) {
-    alert("Hi there! :-)");
-  } if (value.match( /(Car|car|Bike|bike|Moped|moped)/ ) ) {
-    alert("Drive safe! :-)");
-  } if (value.match( /(Buy|buy|Shop|shop)/ ) ) {
-    alert("Did you forget to buy anything else? Soft drinks, maybe some milk. :-)");
-  } if (value.match( /(Milk|milk)/ ) ) {
-    alert("The Korova Milkbar was a milk-plus mesto, and you may, O my brothers, have forgotten what these mestos were like, things changing so skorry these days, and everybody very quick to forget, newspapers not being read much neither. (c) Anthony Burgess, A Clockwork Orange");
-  } if (value.match( /(God|god|Jesus|jesus|Jehovah|jehovah|Allah|allah)/ ) )  {
-    alert("You shall not take the name of the Lord your God in vain. :-)");
-  } if (value.match( /(Book|book)/ ) ) {
-    alert("Speaking of books, I personally suggest you \"Ready Player One\" by Ernest Cline for reading, just awesome! :-)");
-  } if (value.match( /(Parrot|parrot|Pinin|pinin)/ ) ) {
-    alert("He's not pinin'! He's passed on! This parrot is no more! He has ceased to be! He's expired and gone to meet 'is maker! He's a stiff! Bereft of life, he rests in peace! If you hadn't nailed 'im to the perch he'd be pushing up the daisies! His metabolic processes are now history! He's off the twig! He's kicked the bucket, he's shuffled off his mortal coil, run down the curtain and joined the bleedin' choir invisible!! THIS IS AN EX-PARROT!! (c) Monty Python");
-  } if (value.match( /(Banana|banana)/ ) ) {
-    alert("It's quite simple to defend yourself against a man armed with a banana. First of all you force him to drop the banana. Then, second, you eat the banana, thus disarming him. You have now rendered him helpless. (c) Monty Python");
-  } if (value.match( /(Horse|horse)/ ) ) {
-    alert("Look at my HORSE, my horse is amazing!!");
-  } if (value.match( /(Smokes|smokes|Cigar|cigar)/ ) ) {
-    alert("None of my business, but smoking kinda kills or something.");
-  } if (value.match( /(Tea|tea)/ ) ) {
-    alert("-The entire British empire was built on cups of tea. \n-Yeah, and look what happened to that. \n-And if you think I'm going to war without one, mate, you’re mistaken. (с)  lock stock and two smoking barrels");
-  } if (value.match( /(Suicide|suicide)/ ) ) {
-    alert("Suicide, really? Look, you don't need to do this, better take a deep breath, contact me goo.gl/qgp4ei or your best friend and we will talk this out, OK? (or proceed to this page goo.gl/2HQbD6) I mean it, you are not alone, pal.");
-  }
+  const value = document.getElementById("item").value; 
+  reactions(value)
 });
+
 
 // Binds Enter key to add button
 document.getElementById("item").addEventListener("keydown", function(enter) {
   let value = this.value;
   if (enter.code === "Enter" && value) {
-    addItem(value);
-} 
+    reactions(value);
+  } 
 });
 
-// document.onkeydown = function (e) {
-//   e = e || window.event;
-//   switch (e.which || e.keyCode) {
-//         case 13 : //Your Code Here (13 is ascii code for 'ENTER')
-//             break;
-//   }
-// }
-
+// Creates an item with text inside
 function addItem (value) {
  addItemTodo(value)
  document.getElementById('item').value = '';
-
+// Pushes item into LocalStoradge
  data.todo.push(value);
  dataObjectUpdated();
 }
@@ -177,3 +129,48 @@ function removeItem() {
   parent.removeChild(item);
 }
 
+function reactions(value) {
+  if (value) {
+    // Pushing data to array for local storage
+    // data.todo.push(value);
+    // dataObjectUpdated();
+   
+    addItem(value);
+    // Removes text from item field right after adding it
+    document.getElementById("item").value = "";
+  // Reactions to different input, I used Regex to reduce complexity, can be replaced with indexOf like this: 
+  // if ((value.indexOf('first') >= 0) || (value.indexOf('second') >= 0)) {} indexOf process data faster and ignores string case
+  // I also didn't use "else if" to make each conditional equal to each other (has nothing to do with communism) 
+  } 
+  if (value == "") {
+    alert("Please write something.");
+  } if (value.match( /(Cat|cat)/ ) ) {
+    alert("Cats are awesome =(^_^)=");
+  } if (value.match( /(Dog|dog)/ ) ) {
+    alert("Dogs are cool! ₍ᐢ•ﻌ•ᐢ₎");
+  } if (value.match( /(Hello|hello)/ ) ) {
+    alert("Hi there! :-)");
+  } if (value.match( /(Car|car|Bike|bike|Moped|moped)/ ) ) {
+    alert("Drive safe! :-)");
+  } if (value.match( /(Buy|buy|Shop|shop)/ ) ) {
+    alert("Did you forget to buy anything else? Soft drinks, maybe some milk. :-)");
+  } if (value.match( /(Milk|milk)/ ) ) {
+    alert("The Korova Milkbar was a milk-plus mesto, and you may, O my brothers, have forgotten what these mestos were like, things changing so skorry these days, and everybody very quick to forget, newspapers not being read much neither. (c) Anthony Burgess, A Clockwork Orange");
+  } if (value.match( /(God|god|Jesus|jesus|Jehovah|jehovah|Allah|allah)/ ) )  {
+    alert("You shall not take the name of the Lord your God in vain. :-)");
+  } if (value.match( /(Book|book)/ ) ) {
+    alert("Speaking of books, I personally suggest you \"Ready Player One\" by Ernest Cline for reading, just awesome! :-)");
+  } if (value.match( /(Parrot|parrot|Pinin|pinin)/ ) ) {
+    alert("He's not pinin'! He's passed on! This parrot is no more! He has ceased to be! He's expired and gone to meet 'is maker! He's a stiff! Bereft of life, he rests in peace! If you hadn't nailed 'im to the perch he'd be pushing up the daisies! His metabolic processes are now history! He's off the twig! He's kicked the bucket, he's shuffled off his mortal coil, run down the curtain and joined the bleedin' choir invisible!! THIS IS AN EX-PARROT!! (c) Monty Python");
+  } if (value.match( /(Banana|banana)/ ) ) {
+    alert("It's quite simple to defend yourself against a man armed with a banana. First of all you force him to drop the banana. Then, second, you eat the banana, thus disarming him. You have now rendered him helpless. (c) Monty Python");
+  } if (value.match( /(Horse|horse)/ ) ) {
+    alert("Look at my HORSE, my horse is amazing!!");
+  } if (value.match( /(Smokes|smokes|Cigar|cigar)/ ) ) {
+    alert("None of my business, but smoking kinda kills or something.");
+  } if (value.match( /(Tea|tea)/ ) ) {
+    alert("-The entire British empire was built on cups of tea. \n-Yeah, and look what happened to that. \n-And if you think I'm going to war without one, mate, you’re mistaken. (с)  lock stock and two smoking barrels");
+  } if (value.match( /(Suicide|suicide)/ ) ) {
+    alert("Suicide, really? Look, you don't need to do this, better take a deep breath, contact me goo.gl/qgp4ei or your best friend and we will talk this out, OK? (or proceed to this page goo.gl/2HQbD6) I mean it, you are not alone, pal.");
+  }
+}
