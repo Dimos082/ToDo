@@ -14,12 +14,12 @@ function restoreTodoList() {
 
   for (var i = 0; i < data.todo.length; i++) {
     let value = data.todo[i];
-    addItemTodo(value);
+    addItemToDOM(value);
   }
 
   for (var j = 0; j < data.completed.length; j++) {
     let value = data.completed[j];
-    addItemTodo(value, true);
+    addItemToDOM(value, true);
   }
 }
 
@@ -49,7 +49,7 @@ document.getElementById("item").addEventListener("keydown", function(enter) {
 
 // Creates an item with text inside
 function addItem (value) {
- addItemTodo(value)
+ addItemToDOM(value)
  document.getElementById('item').value = '';
 // Pushes item into LocalStoradge
  data.todo.push(value);
@@ -81,7 +81,7 @@ function completeItem() {
 }
 
 // Adds a new item to the todo list
-function addItemTodo(text, completed) {
+function addItemToDOM(text, completed) {
   let list = (completed) ? document.getElementById("completed"):document.getElementById("todo");
 
   let item = document.createElement("li");
@@ -125,6 +125,8 @@ function removeItem() {
   } else {
     data.completed.splice(data.completed.indexOf(value), 1);
   } 
+
+
   dataObjectUpdated();
   parent.removeChild(item);
 }
