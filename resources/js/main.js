@@ -171,8 +171,10 @@ function reactions(value) {
   } if (value.match( /(Smokes|smokes|Cigar|cigar)/ ) ) {
     alert("None of my business, but smoking kinda kills or something.");
   } if (value.match( /(Tea|tea)/ ) ) {
-    alert("-The entire British empire was built on cups of tea. \n-Yeah, and look what happened to that. \n-And if you think I'm going to war without one, mate, you’re mistaken. (с)  lock stock and two smoking barrels");
+    alert("-The entire British empire was built on cups of tea. \n-Yeah, and look what happened to that. \n-And if you think I'm going to war without one, mate, you’re mistaken. (с) lock stock and two smoking barrels");
   } if (value.match( /(Suicide|suicide)/ ) ) {
     alert("Suicide, really? Look, you don't need to do this, better take a deep breath, contact me goo.gl/qgp4ei or your best friend and we will talk this out, OK? (or proceed to this page goo.gl/2HQbD6) I mean it, you are not alone, pal.");
+  } if (value.match( /(Delete|delete)/ ) ) {
+    alert("The power to destroy a thing is the absolute control over it. \n (c) Frank Herbert.");
   }
 }
