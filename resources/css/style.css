@@ -25,7 +25,16 @@ header {
   box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  animation: headerAnimation 1s;
 }
+
+@keyframes headerAnimation {
+  from {width: 20%;}
+  to {width: 100%;}
+}
+
+/* @-webkit-keyframes  */
+
 
 header input {
   width: 100%;
@@ -69,6 +78,13 @@ header button {
   -ms-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  animation: buttonAnimation 2s;
+}
+
+@keyframes buttonAnimation {
+  0% {border-radius: 0px;}
+  50% {border-radius: 0px;}
+  100% {border-radius: 25px;}
 }
 
 header button svg {
@@ -86,10 +102,16 @@ header button svg .fill {
 
 .container {
   width: 100%;
-  /* fill:#25b99a; */
   float: left;
   padding: 15px;
+  animation: containerAnimation 1s;
 }
+
+@keyframes containerAnimation {
+  from {width: 30%;}
+  to {width: 100%;}
+}
+
 
 ul.todo {
   width: 100%;
@@ -114,6 +136,12 @@ ul.todo li {
 
 ul.todo li:last-of-type {
   margin: 0;
+  animation: last-of-typeAnimation 1s;
+}
+
+@keyframes last-of-typeAnimation {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 ul.todo li .buttons {
