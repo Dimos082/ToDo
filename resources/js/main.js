@@ -28,7 +28,7 @@ function dataObjectUpdated() {
   localStorage.setItem("todoList", JSON.stringify(data));
 }
 
-// Pulls items back from local storage (do not move it before global variables)
+// Pulls items back from local storage (do not place it before global variables)
 restoreTodoList();
 
 // User clicked on the add (+) button
@@ -37,7 +37,6 @@ document.getElementById("add").addEventListener("click", function() {
   const value = document.getElementById("item").value; 
   reactions(value)
 });
-
 
 // Binds Enter key to add button
 document.getElementById("item").addEventListener("keydown", function(enter) {
@@ -77,7 +76,9 @@ function completeItem() {
   let target = (id === "todo") ? document.getElementById("completed"):document.getElementById("todo");
 
   parent.removeChild(item);
-  target.insertBefore(item, target.childNodes[0]);
+  target.appendChild(item); 
+  // Use this one instead target.appendChild(item) for adding new items on the top of the list
+  // target.insertBefore(item, target.childNodes[0]);
 }
 
 // Adds a new item to the todo list
@@ -103,14 +104,16 @@ function addItemToDOM(text, completed) {
 
   // Adds click event for completing the item
   complete.addEventListener("click", completeItem);
+  
 
   buttons.appendChild(remove);
   buttons.appendChild(complete);
   item.appendChild(buttons);
 
-  list.insertBefore(item, list.childNodes[0]);
-  // Use this one instead for adding new items in the end of the list
-  // list.appendChild(item);
+  list.appendChild(item); 
+  // Use this one instead list.appendChild(item) for adding new items on the top of the list
+  // list.insertBefore(item, list.childNodes[0]);
+  
 }
 
 // Removes item from todo list
@@ -170,11 +173,13 @@ function reactions(value) {
     alert("Look at my HORSE, my horse is amazing!!");
   } if (value.match( /(Smokes|smokes|Cigar|cigar)/ ) ) {
     alert("None of my business, but smoking kinda kills or something.");
-  } if (value.match( /(Tea|tea)/ ) ) {
+  } if (value.match( /(Teea|ta)/ ) ) {
     alert("-The entire British empire was built on cups of tea. \n-Yeah, and look what happened to that. \n-And if you think I'm going to war without one, mate, you’re mistaken. (с) lock stock and two smoking barrels");
   } if (value.match( /(Suicide|suicide)/ ) ) {
     alert("Suicide, really? Look, you don't need to do this, better take a deep breath, contact me goo.gl/qgp4ei or your best friend and we will talk this out, OK? (or proceed to this page goo.gl/2HQbD6) I mean it, you are not alone, pal.");
   } if (value.match( /(Delete|delete)/ ) ) {
     alert("The power to destroy a thing is the absolute control over it. \n (c) Frank Herbert.");
+  } if (value.match( /(Magic|magic)/ ) ) {
+    alert("It's not magic. It's talent and sweat. \n (c) Bertram Gilfoyle.");
   }
 }
