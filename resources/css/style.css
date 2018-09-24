@@ -6,7 +6,7 @@ body {
 body,
 input,
 tutton {
-  font-family: "Caveat", cursive;
+  font-family: "Caveat";
 }
 
 .noFill {
@@ -32,9 +32,6 @@ header {
   from {width: 20%;}
   to {width: 100%;}
 }
-
-/* @-webkit-keyframes  */
-
 
 header input {
   width: 100%;
@@ -112,7 +109,6 @@ header button svg .fill {
   to {width: 100%;}
 }
 
-
 ul.todo {
   width: 100%;
   float: left;
@@ -134,12 +130,12 @@ ul.todo li {
   padding: 14px 100px 14px 14px;
 }
 
-ul.todo li:last-of-type {
-  margin: 0;
-  animation: last-of-typeAnimation 1s;
+ul.todo li {
+  /* margin: 10; */
+  animation: listItemAnimation 0.5s;
 }
 
-@keyframes last-of-typeAnimation {
+@keyframes listItemAnimation {
   from {opacity: 0;}
   to {opacity: 1;}
 }
@@ -245,7 +241,7 @@ ul.todo#completed {
 ul.todo#completed:before {
   content: "";
   width: 170px;
-  height: 2px;
+  height: 1px;
   border-radius: 100%;
   background: #aaa;
   position: absolute;
@@ -256,7 +252,6 @@ ul.todo#completed:before {
 
 ul.todo#todo:empty:after {
   content: "You are free to plan whatever you want. C'mon, add something!";
-  /* content:'C\'mon, add anything'; */
   margin: 15px 0 0 0;
 }
 
@@ -266,6 +261,7 @@ ul.todo#completed:empty:after {
 
 ul.todo#todo:after,
 ul.todo#completed:after {
+  
   width: 100%;
   display: block;
   text-align: center;
