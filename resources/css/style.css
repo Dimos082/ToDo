@@ -4,8 +4,7 @@ body {
 }
 
 body,
-input,
-tutton {
+input {
   font-family: "Caveat";
 }
 
@@ -25,7 +24,12 @@ header {
   box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  animation: headerAnimation 1s;
+
+  -webkit-animation: headerAnimation 1s ease-in-out;
+  -moz-animation: headerAnimation 1s ease-in-out;
+  -ms-animation: headerAnimation 1s ease-in-out;
+  -o-animation: headerAnimation 1s ease-in-out;
+  animation: headerAnimation 1s ease-in-out;
 }
 
 @keyframes headerAnimation {
@@ -75,7 +79,12 @@ header button {
   -ms-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  animation: buttonAnimation 2s;
+
+  -webkit-animation: buttonAnimation 2s ease-in-out;
+  -moz-animation: buttonAnimation 2s ease-in-out;
+  -ms-animation: buttonAnimation 2s ease-in-out;
+  -o-animation: buttonAnimation 2s ease-in-out;
+  animation: buttonAnimation 2s ease-in-out;
 }
 
 @keyframes buttonAnimation {
@@ -101,7 +110,12 @@ header button svg .fill {
   width: 100%;
   float: left;
   padding: 15px;
-  animation: containerAnimation 1s;
+  
+  -webkit-animation: containerAnimation 1s ease-out;
+  -moz-animation: containerAnimation 1s ease-out;
+  -ms-animation: containerAnimation 1s ease-out;
+  -o-animation: containerAnimation 1s ease-out;
+  animation: containerAnimation 1s ease-out;
 }
 
 @keyframes containerAnimation {
@@ -121,18 +135,35 @@ ul.todo li {
   font-size: 20px;
   font-weight: 600;
   line-height: 22px;
-
   background: white;
   border-radius: 5px;
   position: relative;
   box-shadow: 3px 3px 2px 3px rgba(121, 173, 224, 0.1);
   margin: 0 0 10px 0;
   padding: 14px 100px 14px 14px;
+  word-wrap: break-word;
+  overflow: visible;
 }
 
 ul.todo li {
   /* margin: 10; */
-  animation: listItemAnimation 0.5s;
+
+  -webkit-animation: listItemAnimation 0.6s ease;
+  -moz-animation: listItemAnimation 0.6s ease;
+  -ms-animation: listItemAnimation 0.6s ease;
+  -o-animation: listItemAnimation 0.6s ease;
+  animation: listItemAnimation 0.6s ease;
+}
+
+ul.todo#completed li {
+  /* margin: 10; */
+  text-decoration: line-through;
+
+  -webkit-animation: listItemAnimation 0.6s ease-in-out;
+  -moz-animation: listItemAnimation 0.6s ease-in-out;
+  -ms-animation: listItemAnimation 0.6s ease-in-out;
+  -o-animation: listItemAnimation 0.6s ease-in-out;
+  animation: listItemAnimation 0.6s ease-in-out;
 }
 
 @keyframes listItemAnimation {
@@ -189,11 +220,11 @@ ul.todo li .buttons button.complete svg {
   border-radius: 12px;
   border: 1.5px solid rgb(37, 185, 154);
 
-  -webkit-transition: background 0.3s ease;
-  -moz-transition: background 0.3s ease;
-  -ms-transition: background 0.3s ease;
-  -o-transition: background 0.3s ease;
-  transition: background 0.3s ease;
+  -webkit-transition: background 0.3s ease-out;
+  -moz-transition: background 0.3s ease-out;
+  -ms-transition: background 0.3s ease-out;
+  -o-transition: background 0.3s ease-out;
+  transition: background 0.3s ease-out;
 }
 
 ul.todo#completed li .buttons button.complete svg {
@@ -214,11 +245,11 @@ ul.todo#completed li .buttons button.complete svg .fill {
 }
 
 ul.todo li .buttons button svg .fill {
-  transition: fill 0.3s ease;
-  -webkit-transition: fill 0.3s ease;
-  -moz-transition: fill 0.3s ease;
-  -ms-transition: fill 0.3s ease;
-  -moz-transition: fill 0.3s ease;
+  transition: fill 0.3s ease-out;
+  -webkit-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
+  -ms-transition: fill 0.3s ease-out;
+  -moz-transition: fill 0.3s ease-out;
 }
 
 ul.todo li .buttons button.remove svg .fill {
@@ -261,10 +292,11 @@ ul.todo#completed:empty:after {
 
 ul.todo#todo:after,
 ul.todo#completed:after {
-  
   width: 100%;
   display: block;
   text-align: center;
   font-size: 20px;
   color: #aaa;
+  white-space: nowrap;
+  overflow: hidden;
 }
