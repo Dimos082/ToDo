@@ -132,12 +132,12 @@ ul.todo li {
   font-weight: 600;
   line-height: 22px;
   background: white;
-  border-radius: 5px;
-  position: relative;
+  border-radius: 5px;  
   box-shadow: 3px 3px 2px 3px rgba(121, 173, 224, 0.1);
   margin: 0 0 10px 0;
-  padding: 14px 100px 14px 14px;
-  word-wrap: break-word;
+  padding: 14px 20px 14px 14px;  
+   word-break: break-all;
+   box-sizing: border-box;
   overflow: visible;
 }
 
@@ -149,17 +149,21 @@ ul.todo li {
   -ms-animation: listItemAnimation 0.6s ease;
   -o-animation: listItemAnimation 0.6s ease;
   animation: listItemAnimation 0.6s ease;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 ul.todo#completed li {
   /* margin: 10; */
   text-decoration: line-through;
-
   -webkit-animation: listItemAnimation 0.6s ease-in-out;
   -moz-animation: listItemAnimation 0.6s ease-in-out;
   -ms-animation: listItemAnimation 0.6s ease-in-out;
   -o-animation: listItemAnimation 0.6s ease-in-out;
   animation: listItemAnimation 0.6s ease-in-out;
+ 
 }
 
 @keyframes listItemAnimation {
@@ -168,17 +172,12 @@ ul.todo#completed li {
 }
 
 ul.todo li .buttons {
-  width: 100px;
-  height: 50px;
-  position: absolute;
-  top: 0;
-  right: 0;
+  width: 100px;  
+  display: flex;
 }
 
 ul.todo li .buttons button {
   width: 50px;
-  height: 50px;
-  
   background: none;
   position: relative;
   border: 0;
@@ -198,7 +197,7 @@ ul.todo li .buttons button:last-of-type:before {
   width: 1px;
   height: 30px;
   position: absolute;
-  top: 10px;
+  top: -13px;
   left: 0;
   background: #edf0f1;
 }
